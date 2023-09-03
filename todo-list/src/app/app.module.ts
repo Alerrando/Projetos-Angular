@@ -5,18 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskCreateComponent } from './task-create/task-create.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes:Routes = [
+  { path: "", component: TasksComponent },
+  { path: "task-create", component: TaskCreateComponent }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
-    TaskCreateComponent
+    TaskCreateComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

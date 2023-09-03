@@ -1,1 +1,18 @@
-<p>tasks works!</p>
+<main class="w-screen h-screen flex items-center justify-center">
+    <div class="w-3/4 h-3/4 border rounded-lg relative">
+        <header class="w-full h-auto py-2 px-4 flex justify-between">
+            <span class="material-symbols-outlined absolute -top-[5%] right-1/2 text-6xl">
+                task_alt
+            </span>
+
+            <div class="flex flex-col items-center gap-4">
+                {{ tasks.length }}
+                Tasks Created
+            </div>
+        </header>
+
+        <span class="w-max material-symbols-outlined absolute -bottom-[5%] right-1/2 text-6xl cursor-pointer rounded-full bg-blue-400 hover:bg-blue-600">
+            done
+        </span>
+    </div>
+</main>
