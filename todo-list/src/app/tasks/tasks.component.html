@@ -1,6 +1,6 @@
 <main class="w-screen h-screen flex items-center justify-center">
-    <div class="w-3/4 h-3/4 border rounded-lg relative">
-        <header class="w-full h-auto py-2 px-4 flex justify-between">
+    <div class="w-3/4 h-3/4 flex flex-col gap-2 border rounded-lg relative">
+        <header class="w-full h-auto py-2 px-4 flex justify-between before:block before:absolute before:border-b-2">
             <span class="material-symbols-outlined absolute -top-[5%] right-1/2 text-6xl">
                 task_alt
             </span>
@@ -11,8 +11,30 @@
             </div>
         </header>
 
+        <section class="w-full h-full overflow-x-auto">
+            <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                <thead class="ltr:text-left rtl:text-right">
+                    <tr>
+                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-900">
+                            Id
+                        </th>
+                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-900">
+                            Nome
+                        </th>
+                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-900">
+                            Data de criação
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                </tbody>
+            </table>
+        </section>
+
         <span class="w-max material-symbols-outlined absolute -bottom-[5%] right-1/2 text-6xl cursor-pointer rounded-full bg-blue-400 hover:bg-blue-600">
-            done
+            <a routerLink="/task-create" ariaCurrentWhenActive="page" class="w-full h-full">
+                done
+            </a>
         </span>
     </div>
 </main>
