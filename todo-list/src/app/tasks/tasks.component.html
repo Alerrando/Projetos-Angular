@@ -1,32 +1,32 @@
-<main class="w-screen h-screen flex items-center justify-center">
-    <div class="w-3/4 h-3/4 flex flex-col gap-2 border rounded-lg relative">
+<main class="w-screen h-screen flex items-center justify-center bg-zinc-900">
+    <div class="w-3/4 h-3/4 flex flex-col gap-2 border rounded-lg relative bg-zinc-700">
         <header class="w-full h-auto py-2 px-4 flex justify-between before:block before:absolute before:border-b-2">
-            <span class="material-symbols-outlined absolute -top-[5%] right-1/2 text-6xl">
+            <span class="material-symbols-outlined absolute -top-[5%] right-1/2 text-6xl text-gray-200">
                 task_alt
             </span>
 
-            <div class="flex flex-col items-center gap-4">
+            <div class="flex flex-col items-center gap-4 text-gray-200">
                 {{ tasks.length }}
                 Tasks Created
             </div>
         </header>
 
         <section class="w-full h-full overflow-x-auto">
-            <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+            <table class="min-w-full divide-y-2 divide-gray-400">
                 <thead class="ltr:text-left rtl:text-right">
                     <tr>
-                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-900">
+                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-200">
                             Id
                         </th>
-                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-900">
+                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-200">
                             Nome
                         </th>
-                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-900">
+                        <th scope="col" class="whitespace-nowrap text-start px-4 py-2 font-medium text-gray-200">
                             Data de criação
                         </th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-200">
+                <tbody class="divide-y divide-gray-400">
                 </tbody>
             </table>
         </section>
