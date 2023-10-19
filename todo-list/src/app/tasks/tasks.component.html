@@ -3,24 +3,30 @@
 </header>
 
 <main class="w-4/6 h-auto max-h-[85%] flex flex-col gap-12 mx-auto">
-    <div class="w-full h-9 flex flex-row gap-3 relative after:block after:absolute after:-bottom-4 after:w-full after:border-t-[1px]">
+    <form class="w-full h-9 flex flex-row gap-3 relative after:block after:absolute after:-bottom-4 after:w-full after:border-t-[1px]" [formGroup]="formInput" (ngSubmit)="onSubmit()">
         <div class="w-full h-full flex flex-row items-center gap-3 border border-princ rounded-lg px-3">
             <span class="material-symbols-outlined text-[#ACACAC]">
                 search
             </span>
-            <input type="text" class="w-full font-semibold border-none outline-none text-[#ACACAC]" placeholder="Digite sua tarefa" name="task" id="task" />
+            <input type="text" class="w-full font-semibold border-none outline-none text-[#ACACAC]" placeholder="Digite sua tarefa" name="task" id="task" formControlName="task" />
         </div>
 
-        <button class="w-auto h-full flex flex-row items-center gap-1 px-2 border border-princ text-princ rounded-lg hover:bg-princ hover:text-white transition-colors">
+        <button type="submit" class="w-auto h-full flex flex-row items-center gap-1 px-2 border border-princ text-princ rounded-lg hover:bg-princ hover:text-white transition-colors">
             <span class="text-xl font-bold">Add</span>
 
             <span class="material-symbols-outlined">
                 add
             </span>
         </button>
+    </form>
+
+    <div class="w-2/4 h-2/4 flex items-center justify-center mx-auto" *ngIf="tasks.length===0; else elseBlock">
+        <img class="w-full h-full" src="assets/imgs/img-empty-task.png" alt="">
     </div>
 
-    <div class="w-40 h-40 flex items-center justify-center mx-auto" *ngIf="tasks.length===0">
-
-    </div>
+    <ng-template #elseBlock class="w-full flex flex-col gap-5">
+        <div class="w-full flex items-center justify-start">
+            <span class="font-bold text-princ">Tarefas criadas: {{ tasks.length }}</span>
+        </div>
+    </ng-template>
 </main>
