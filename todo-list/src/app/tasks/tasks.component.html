@@ -30,13 +30,13 @@
         </div>
 
         <div class="w-full flex flex-col gap-4" *ngFor="let task of tasks">
-            <div class="flex items-center justify-between px-3 py-3 bg-[#F9F9F9] rounded-lg">
+            <div class="flex items-center justify-between px-3 py-3 bg-[#f6f6f6] rounded-lg" [ngClass]="{'bg-[#f2f2f2]': task.checked}">
                 <div class="w-full flex flex-row gap-2 items-center" (click)="handleChecked(task.id)">
                     <input class="w-4 h-4" type="radio" name="task-{{task.id}}" id="task-{{task.id}}" [checked]=task.checked>
-                    <span>{{ task.name }}</span>
+                    <span [ngClass]="{'line-through': task.checked}">{{ task.name }}</span>
                 </div>
 
-                <span class="material-symbols-outlined cursor-pointer">
+                <span class="material-symbols-outlined cursor-pointer" (click)="deleteTask(task.id)">
                     delete
                 </span>
             </div>

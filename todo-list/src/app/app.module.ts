@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalMessageComponent } from './modal-message/modal-message.component';
 
 const routes:Routes = [
   { path: "", component: TasksComponent },
@@ -15,6 +16,7 @@ const routes:Routes = [
   declarations: [
     AppComponent,
     TasksComponent,
+    ModalMessageComponent,
   ],
   imports: [
     BrowserModule,

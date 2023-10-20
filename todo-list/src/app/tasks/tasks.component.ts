@@ -38,11 +38,17 @@ export class TasksComponent {
     this.tasks.push(task);
   }
 
-  handleChecked(id: number){
-    const aux = [...this.tasks];
+  handleChecked(id: number): void{
+    const aux: TasksProps[] = [...this.tasks];
     aux.forEach((task: TasksProps) => {
       if(id === task.id){ task.checked = !task.checked }
     })
+
+    this.tasks = aux;
+  }
+
+  deleteTask(id: number): void{
+    const aux: TasksProps[] = this.tasks.filter((task) => task.id !== id)
 
     this.tasks = aux;
   }
