@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgOptimizedImage } from '@angular/common'
-
 
 const routes:Routes = [
   { path: "", component: TasksComponent },
@@ -21,7 +19,6 @@ const routes:Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
