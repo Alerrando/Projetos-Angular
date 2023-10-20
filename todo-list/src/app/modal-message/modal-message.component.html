@@ -1,1 +1,12 @@
-<p>modal-message works!</p>
+<div class="w-2/6 h-16 absolute bottom-2 left-4">
+    <div class="w-full h-full bg-zinc-900 rounded-lg flex flex-row gap-2 items-center justify-start px-4 relative">
+        <span class="w-5 h-5 rounded-full flex items-center justify-center" [ngClass]="{'bg-green-500': message.status}">
+            <span class="material-symbols-outlined text-xl">
+                done
+            </span>
+        </span>
+        <span class="font-semibold text-lg text-white">{{ message.messagem }}</span>
+
+        <div class="w-[calc(100%_-_10.33333%)] h-[2px] absolute bottom-2 bg-green-500"></div>
+    </div>
+</div>

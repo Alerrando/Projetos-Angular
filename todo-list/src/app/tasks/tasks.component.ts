@@ -7,20 +7,23 @@ type TasksProps = {
   checked: boolean,
 }
 
+export type MessageProps = {
+  messagem: string,
+  status: boolean,
+}
+
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  styleUrls: ['./tasks.component.css'],
 })
 export class TasksComponent {
-  tasks: TasksProps[] = [
-    {
-      "id": 0,
-      "name": "Alerrando",
-      "checked": false,
-    }
-  ];
+  tasks: TasksProps[] = [];
   formInput: FormGroup;
+  message: MessageProps = {
+    "messagem": "",
+    "status": false,
+  };
 
   constructor(private formBuilder: FormBuilder){
     this.formInput = this.formBuilder.group({
@@ -48,8 +51,16 @@ export class TasksComponent {
   }
 
   deleteTask(id: number): void{
-    const aux: TasksProps[] = this.tasks.filter((task) => task.id !== id)
+    if(window.confirm(`Quer deletar a tarefa ${this.tasks.find((task) => task.id === id)?.name}?`)){
+      const aux: TasksProps[] = this.tasks.filter((task) => task.id !== id)
+  
+      this.message.messagem = `Tarefa ${this.tasks.find((task) => task.id === id)?.name} deletada com sucesso`;
+      this.message.status = true;
 
-    this.tasks = aux;
+      setTimeout(() => {
+        this.message.messagem = "";
+        this.tasks = aux;
+      }, 3000)
+    }
   }
 }

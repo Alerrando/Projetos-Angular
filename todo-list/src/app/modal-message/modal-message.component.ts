@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MessageProps } from '../tasks/tasks.component';
 
 @Component({
   selector: 'app-modal-message',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./modal-message.component.css']
 })
 export class ModalMessageComponent {
-
+  @Input()
+  message: MessageProps = {
+    "messagem": "",
+    "status": false,
+  };
 }
