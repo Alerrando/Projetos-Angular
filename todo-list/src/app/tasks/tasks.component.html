@@ -8,7 +8,7 @@
             <span class="material-symbols-outlined text-[#ACACAC]">
                 search
             </span>
-            <input type="text" class="w-full font-semibold border-none outline-none text-[#ACACAC]" placeholder="Digite sua tarefa" name="task" id="task" formControlName="task" />
+            <input type="text" class="w-full font-semibold border-none outline-none text-[#ACACAC]" placeholder="Digite sua tarefa" name="task" id="task" formControlName="task" autocomplete="off" />
         </div>
 
         <button type="submit" class="w-auto h-9 flex flex-row items-center justify-center gap-1 px-2 border border-princ text-princ rounded-lg hover:bg-princ hover:text-white transition-colors">
@@ -36,10 +36,16 @@
                         <input class="w-4 h-4" type="radio" name="task-{{task.id}}" id="task-{{task.id}}" [checked]=task.checked>
                         <span [ngClass]="{'line-through': task.checked}">{{ task.name }}</span>
                     </div>
-    
-                    <span class="material-symbols-outlined cursor-pointer" (click)="deleteTask(task.id)">
-                        delete
-                    </span>
+                    
+                    <div class="w-auto flex flex-row gap-3 items-center">
+                        <span class="material-symbols-outlined cursor-pointer" (click)="handleEdit(task.id)">
+                            edit
+                        </span>
+
+                        <span class="material-symbols-outlined cursor-pointer" (click)="deleteTask(task.id)">
+                            delete
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

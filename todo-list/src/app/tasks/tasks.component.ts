@@ -24,6 +24,7 @@ export class TasksComponent {
     "messagem": "",
     "status": false,
   };
+  edit: number = -1;
 
   constructor(private formBuilder: FormBuilder){
     this.formInput = this.formBuilder.group({
@@ -32,28 +33,60 @@ export class TasksComponent {
   }
 
   onSubmit(): void{
+    if(this.edit === -1){
+      this.addTask();
+    }
+    else{
+      this.editTask();
+    }
+    
+    setTimeout(() => {
+      this.message.messagem = "";
+    }, 3000);
+
+    this.formInput = this.formBuilder.group({
+      task: "",
+    });
+    this.edit = -1;
+  }
+
+  addTask(){
     const taskAux = {
       id: this.tasks.length + 1,
       name: this.formInput.value.task,
       checked: false,
     }
-
     const verifyExisty = this.tasks.find((task) => task.name === taskAux.name)?.id;
     if (verifyExisty == undefined) {
       this.tasks.push(taskAux);
       this.message.messagem = `Tarefa ${taskAux.name} adicionada com sucesso`;
       this.message.status = true;
-
     }
     else{
       this.message.messagem = `Tarefa ${taskAux.name} já existe`;
       this.message.status = false;
     }
+  }
 
+  editTask(){
+    const aux: TasksProps[] = [...this.tasks];''
+    aux.forEach((task: TasksProps) => {
+      if(task.id === this.edit){
+        task.name = this.formInput.value.task;
+      }
+    });
 
-    setTimeout(() => {
-      this.message.messagem = "";
-    }, 3000)
+    this.tasks = aux;
+    this.message.messagem = `Tarefa editada com sucesso`;
+    this.message.status = true;
+  }
+
+  handleEdit(id: number){
+    this.edit = id;
+    const name = this.tasks.find((task) => task.id === id)?.name;
+    this.formInput = this.formBuilder.group({
+      task: name,
+    });
   }
 
   handleChecked(id: number): void{

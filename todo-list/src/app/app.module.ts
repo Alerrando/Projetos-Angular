@@ -7,7 +7,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalMessageComponent } from './modal-message/modal-message.component';
-import { MySvgEmptyComponent } from './my-svg-empty/my-svg-empty.component';
+import { MySvgEmptyComponent } from './components/my-svg-empty/my-svg-empty.component';
 
 const routes:Routes = [
   { path: "", component: TasksComponent },
