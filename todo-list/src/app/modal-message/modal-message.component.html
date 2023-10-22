@@ -1,12 +1,24 @@
-<div class="w-2/6 h-16 absolute bottom-2 left-4">
-    <div class="w-full h-full bg-zinc-900 rounded-lg flex flex-row gap-2 items-center justify-start px-4 relative">
-        <span class="w-5 h-5 rounded-full flex items-center justify-center" [ngClass]="{'bg-green-500': message.status}">
-            <span class="material-symbols-outlined text-xl">
+<div class="w-full md:w-2/6 h-auto md:h-16 fixed bottom-2 right-0 md:right-[65%] transition-all" [ngClass]="{'right-[100%!important]' : message.messagem == ''}">
+    <div class="w-full h-full bg-zinc-900 rounded-lg flex flex-row gap-2 items-center justify-start px-4 py-4 md:py-0 relative" *ngIf="message.status==true; else elseBlock">
+        <span class="w-[7%] md:w-[5%] h-5 rounded-full flex items-center justify-center" [ngClass]="getMessageStatusClass(message.status)">
+            <span class="material-symbols-outlined text-xs md:text-xl">
                 done
             </span>
         </span>
-        <span class="font-semibold text-lg text-white">{{ message.messagem }}</span>
+        <span class="w-[95%] font-semibold text-lg text-white">{{ message.messagem }}</span>
 
         <div class="w-[calc(100%_-_10.33333%)] h-[2px] absolute bottom-2 bg-green-500"></div>
     </div>
+    <ng-template #elseBlock>
+        <div class="w-full h-full bg-zinc-900 rounded-lg flex flex-row gap-2 items-center justify-start px-4 py-4 md:py-0 relative">
+            <span class="w-[7%] md:w-[5%] h-5 rounded-full flex items-center justify-center" [ngClass]="getMessageStatusClass(message.status)">
+                <span class="material-symbols-outlined text-xs md:text-xl">
+                    close
+                </span>
+            </span>
+            <span class="w-[95%] font-semibold text-lg text-white">{{ message.messagem }}</span>
+    
+            <div class="w-[calc(100%_-_10.33333%)] h-[2px] absolute bottom-2 bg-red-500"></div>
+        </div>
+    </ng-template>
 </div>

@@ -12,4 +12,9 @@ export class ModalMessageComponent {
     "messagem": "",
     "status": false,
   };
+
+  getMessageStatusClass(status: boolean): { [key: string]: boolean } {
+    return status ? { 'bg-green-500': true } : { 'bg-red-500': true } ;
+  }
 }
+

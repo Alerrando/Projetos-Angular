@@ -32,13 +32,28 @@ export class TasksComponent {
   }
 
   onSubmit(): void{
-    const task = {
+    const taskAux = {
       id: this.tasks.length + 1,
       name: this.formInput.value.task,
       checked: false,
     }
 
-    this.tasks.push(task);
+    const verifyExisty = this.tasks.find((task) => task.name === taskAux.name)?.id;
+    if (verifyExisty == undefined) {
+      this.tasks.push(taskAux);
+      this.message.messagem = `Tarefa ${taskAux.name} adicionada com sucesso`;
+      this.message.status = true;
+
+    }
+    else{
+      this.message.messagem = `Tarefa ${taskAux.name} já existe`;
+      this.message.status = false;
+    }
+
+
+    setTimeout(() => {
+      this.message.messagem = "";
+    }, 3000)
   }
 
   handleChecked(id: number): void{
