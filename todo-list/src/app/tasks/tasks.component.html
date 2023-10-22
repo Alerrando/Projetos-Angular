@@ -21,7 +21,7 @@
     </form>
 
     <div class="w-full h-full md:w-2/4 md:h-2/4 flex items-center justify-center mx-auto" *ngIf="tasks.length===0; else elseBlock">
-        <img class="w-full h-full" src="assets/imgs/img-empty-task.png" alt="">
+        <app-my-svg-empty></app-my-svg-empty>
     </div>
 
     <ng-template #elseBlock >
